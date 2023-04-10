@@ -72,4 +72,12 @@ describe('getValuesByPath', () => {
     const result = getValuesByPath(obj, 'a.c', null);
     expect(result).toBe(null);
   });
+
+  it('no match', () => {
+    const obj = {
+      a: { b: 1 },
+    };
+    const result = getValuesByPath(obj, 'c.c', null);
+    expect(result).toBe(null);
+  });
 });
