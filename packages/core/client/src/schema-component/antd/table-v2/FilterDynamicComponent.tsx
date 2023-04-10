@@ -1,5 +1,4 @@
 import React from 'react';
-import { useCompile } from '../..';
 import { useValues } from '../filter/useValues';
 import { Variable } from '../variable';
 import { useUserVariable } from './hooks/useUserVariable';
@@ -162,11 +161,9 @@ const useVariableOptions = () => {
 export function FilterDynamicComponent(props) {
   const { value, onChange, renderSchemaComponent } = props;
   const options = useVariableOptions();
-  const compile = useCompile();
-  const scope = compile(options);
 
   return (
-    <Variable.Input value={value} onChange={onChange} scope={scope}>
+    <Variable.Input value={value} onChange={onChange} scope={options}>
       {renderSchemaComponent()}
     </Variable.Input>
   );
