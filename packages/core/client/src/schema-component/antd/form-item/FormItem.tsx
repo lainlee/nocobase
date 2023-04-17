@@ -406,7 +406,7 @@ FormItem.Designer = () => {
                   name: 'default',
                   title: t('Default value'),
                   'x-decorator': 'FormItem',
-                  default: fieldSchema.default || collectionField?.defaultValue,
+                  default: getFieldDefaultValue(fieldSchema, collectionField),
                 },
               },
             } as ISchema
@@ -593,3 +593,7 @@ function isFileCollection(collection: Collection) {
 }
 
 FormItem.FilterFormDesigner = FilterFormDesigner;
+
+export function getFieldDefaultValue(fieldSchema: ISchema, collectionField: CollectionField) {
+  return fieldSchema?.default || collectionField?.defaultValue;
+}
