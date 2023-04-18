@@ -925,7 +925,6 @@ export const createDetailsBlockSchema = (options) => {
       },
     },
   };
-  console.log(JSON.stringify(schema, null, 2));
   return schema;
 };
 
@@ -937,6 +936,7 @@ export const createFormBlockSchema = (options) => {
     resource,
     association,
     action,
+    actions = {},
     template,
     ...others
   } = options;
@@ -983,7 +983,7 @@ export const createFormBlockSchema = (options) => {
                 marginTop: 24,
               },
             },
-            properties: {},
+            properties: actions,
           },
         },
       },

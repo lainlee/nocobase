@@ -23,6 +23,7 @@ import { useFlowContext } from '../../FlowContext';
 import { lang, NAMESPACE } from '../../locale';
 import { JOB_STATUS } from '../../constants';
 import customForm from './forms/customForm';
+import createForm from './forms/createRecordForm';
 
 
 
@@ -84,12 +85,7 @@ function AddBlockButton(props: any) {
       title: '{{t("Form")}}',
       children: [
         customForm.config.initializer,
-        // {
-        //   key: 'createForm',
-        //   type: 'item',
-        //   title: '{{t("Create record form")}}',
-        //   component: CustomFormBlockInitializer,
-        // },
+        createForm.config.initializer,
         // {
         //   key: 'updateForm',
         //   type: 'item',
@@ -331,6 +327,7 @@ export function SchemaConfig({ value, onChange }) {
             components={{
               ...nodeComponents,
               ...customForm.config.components,
+              ...createForm.config.components,
               // NOTE: fake provider component
               ManualActionStatusProvider(props) {
                 return props.children;
